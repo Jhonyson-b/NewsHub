@@ -1,20 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap");
 
-:root {
-    --bg: #f6f4f0;
-    --ink: #141414;
-    --muted: #5b5b5b;
-    --accent: #f37a3f;
-    --accent-dark: #d9652d;
-    --surface: #ffffff;
-    --surface-alt: #f0ede8;
-    --border: #e2ddd5;
-    --shadow: 0 20px 50px rgba(20, 20, 20, 0.12);
-    --radius-lg: 28px;
-    --radius-md: 16px;
-    --radius-sm: 10px;
-}
-
 body {
     display: grid;
     grid-template-areas:
