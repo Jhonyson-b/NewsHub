@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap");
+
+:root {
+    --bg: #f6f4f0;
+    --ink: #141414;
+    --muted: #5b5b5b;
+    --accent: #f37a3f;
+    --accent-dark: #d9652d;
+    --surface: #ffffff;
+    --surface-alt: #f0ede8;
+    --border: #e2ddd5;
+    --shadow: 0 20px 50px rgba(20, 20, 20, 0.12);
+    --radius-lg: 28px;
+    --radius-md: 16px;
+    --radius-sm: 10px;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "category"
+           "main";
+    gap: 32px;
+    min-height: 100vh;
+    background: radial-gradient(1200px 600px at 15% -10%, #ffe6d7 0%, transparent 60%),
+        radial-gradient(900px 500px at 100% 10%, #f7efdd 0%, transparent 65%),
+        var(--bg);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", "Segoe UI", Tahoma, sans-serif;
+    font-size: 16px;
+    padding: 40px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* header */
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    animation: rise 0.7s ease-out both;
+}
+
+.header a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header a img {
+    width: clamp(120px, 16vw, 180px);
+}
+
+.header p {
+    font-size: 18px;
+    color: var(--muted);
+}
+
+/* category */
+.category-navigation {
+    grid-area: category;
+    display: flex;
+    align-items: center;
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: var(--shadow);
+    animation: rise 0.7s ease-out 0.1s both;
+}
+
+.category-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.category-navigation .btn {
+    font-family: "Space Grotesk", "Segoe UI", Tahoma, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    font-size: 15px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    background: var(--surface);
+    color: var(--ink);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    box-shadow: 0 10px 24px rgba(20, 20, 20, 0.08);
+}
+
+.category-navigation .btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+.category-navigation .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* main */
+.main-content {
+    grid-area: main;
+    display: grid;
+    gap: 28px;
+    animation: rise 0.7s ease-out 0.2s both;
+}
+
+.featured-news {
+    min-height: 220px;
+    background: linear-gradient(120deg, #fff4ec 0%, #ffffff 55%, #fdf3e7 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 4vw, 40px);
+    box-shadow: var(--shadow);
+    display: grid;
+    gap: 16px;
+}
+
+.featured-news::before {
+    content: "\1F525  Noticia em destaque";
+    font-family: "Space Grotesk", "Segoe UI", Tahoma, sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--accent-dark);
+}
+
+.news {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.news::before {
+    content: "Ultimas noticias";
+    grid-column: 1 / -1;
+    font-family: "Space Grotesk", "Segoe UI", Tahoma, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+}
+
+.news > * {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: 0 16px 40px rgba(20, 20, 20, 0.08);
+    min-height: 200px;
+}
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        padding: 24px 20px 64px;
+    }
+
+    .category-navigation {
+        justify-content: center;
+    }
+
+    .category-navigation ul {
+        gap: 10px;
+    }
+
+    .category-navigation .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
