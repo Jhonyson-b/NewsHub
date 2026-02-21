@@ -143,6 +143,7 @@ body::before {
     font-weight: 700;
     color: var(--ink);
     margin-bottom: 6px;
+    padding-left: 20px;
 }
 
 .news > * {
@@ -152,6 +153,10 @@ body::before {
     padding: 18px;
     box-shadow: 0 16px 40px rgba(20, 20, 20, 0.08);
     min-height: 200px;
+}
+
+.oculto {
+    display: none;
 }
 
 @keyframes rise {

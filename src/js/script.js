@@ -20,6 +20,9 @@ const buttons = document.querySelectorAll('.category-navigation .btn');
 const featuredSection = document.querySelector('.featured-news');
 const newsList = document.querySelector('.news');
 
+featuredSection.classList.add('oculto');
+newsList.classList.add('oculto');
+
 const setActiveButton = (activeButton) => {
     buttons.forEach((button) => {
         const isActive = button === activeButton;
@@ -72,7 +75,10 @@ const loadCategory = async (category, button) => {
     try {
         setActiveButton(button);
         featuredSection.innerHTML = '<p>Carregando...</p>';
-        newsList.innerHTML = '';
+        newsList.innerHTML = '<p>Carregando...</p>';
+
+        featuredSection.classList.remove('oculto');
+        newsList.classList.remove('oculto');
 
         const data = await fetchNewsByCategory(category);
         const articles = data.articles || [];
@@ -96,6 +102,3 @@ categoryNav.addEventListener('click', (event) => {
     loadCategory(category, button);
 });
 
-if (buttons.length) {
-    loadCategory(buttons[0].dataset.category, buttons[0]);
-}
