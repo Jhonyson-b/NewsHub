@@ -1,84 +1,46 @@
 # NewsHub
-Aplicação web que consome uma API de notícias para exibir as principais manchetes organizadas por categoria. O usuário escolhe o tema de interesse e visualiza resumos atualizados com link para a fonte original. O projeto contará com consumo de APIs e manipulação dinâmica do DOM no JavaScript.
 
-                                DESK
-┌───────────────────────────────────────────────────────────┐
-│ LOGO / NOME DO PROJETO                                     │
-│ As principais notícias organizadas por tema               │
-└───────────────────────────────────────────────────────────┘
+Aplicação web que consome a API do GNews para exibir manchetes por categoria. O usuario escolhe o tema de interesse e visualiza noticias atualizadas, com destaque e lista secundaria.
 
+## Visao geral
 
-┌───────────────────────────────────────────────────────────┐
-│ [ Tecnologia ] [ Negócios ] [ Ciência ] [ Saúde ] [ Esportes ] │
-└───────────────────────────────────────────────────────────┘
+- Foco em leitura rapida de noticias por tema
+- Interface limpa, moderna e responsiva
+- Conteudo carregado dinamicamente via JavaScript
 
+## Demo
 
-┌───────────────────────────────────────────────────────────┐
-│ 🔥 NOTÍCIA EM DESTAQUE                                     │
-│                                                           │
-│ Título da principal notícia do dia                         │
-│ Fonte • Data                                               │
-│ Breve resumo da notícia em destaque...                     │
-│ [ Ler notícia completa ]                                   │
-└───────────────────────────────────────────────────────────┘
+Em breve no GitHub Pages.
 
+## Tecnologias
 
-┌───────────────────────────┐  ┌───────────────────────────┐
-│ Título da notícia         │  │ Título da notícia         │
-│ Fonte • Data              │  │ Fonte • Data              │
-│ Resumo curto...           │  │ Resumo curto...           │
-│ [ Ler notícia ]           │  │ [ Ler notícia ]           │
-└───────────────────────────┘  └───────────────────────────┘
+- HTML5
+- CSS3
+- JavaScript (DOM, Fetch API)
 
-┌───────────────────────────┐  ┌───────────────────────────┐
-│ Título da notícia         │  │ Título da notícia         │
-│ Fonte • Data              │  │ Fonte • Data              │
-│ Resumo curto...           │  │ Resumo curto...           │
-│ [ Ler notícia ]           │  │ [ Ler notícia ]           │
-└───────────────────────────┘  └───────────────────────────┘
+## Tecnicas e recursos
 
+- Integracao com API externa (GNews)
+- Requisicoes async/await e tratamento de erro
+- Renderizacao dinamica do DOM
+- Delegacao de eventos para categorias
+- Filtros por palavras-chave
+- Estado de UI (carregando, vazio, erro)
 
-┌───────────────────────────────────────────────────────────┐
-│ [ Carregar mais notícias ]                                 │
-└───────────────────────────────────────────────────────────┘
+## 🚀 Como usar
 
+1. Acesse o **NewsHub** pelo GitHub Pages ou diretamente pelo link:  
+   👉 www.link.com  
 
-                                  Mobile 
-┌─────────────────────────────┐
-│ LOGO / NOME DO PROJETO      │
-│ As principais notícias      │
-└─────────────────────────────┘
+2. Selecione a categoria de notícias desejada no menu.
 
+3. As notícias serão exibidas automaticamente na tela.  
+   Clique em **"Ler notícia completa"** para acessar a fonte original.
 
-┌─────────────────────────────┐
-│ [ Selecionar categoria ▼ ]  │
-└─────────────────────────────┘
+## Roadmap
 
+- Botao de carregar mais
+- Filtros mais precisos por categoria
+- Modo escuro
+- Cache local para reduzir chamadas da API
 
-┌─────────────────────────────┐
-│ 🔥 NOTÍCIA EM DESTAQUE      │
-│ Título grande               │
-│ Fonte • Data                │
-│ Resumo...                   │
-│ [ Ler notícia ]             │
-└─────────────────────────────┘
-
-
-┌─────────────────────────────┐
-│ Título da notícia           │
-│ Fonte • Data                │
-│ Resumo curto...             │
-│ [ Ler notícia ]             │
-└─────────────────────────────┘
-
-┌─────────────────────────────┐
-│ Título da notícia           │
-│ Fonte • Data                │
-│ Resumo curto...             │
-│ [ Ler notícia ]             │
-└─────────────────────────────┘
-
-
-┌─────────────────────────────┐
-│ [ Carregar mais ]           │
-└─────────────────────────────┘
