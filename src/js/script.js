@@ -1,12 +1,12 @@
 /* API */
 const BASE_URL = 'https://gnews.io/api/v4';
-const PROXY_URL = 'https://portalnewshub.netlify.app';
+const PROXY_URL = 'https://portalnewshub.netlify.app/.netlify/functions/news';
 const CATEGORY_QUERIES = {
-    technology: 'tecnologia OR IA OR software OR hardware OR aplicativos OR internet OR gadgets OR inovacao OR smartphones OR notebooks',
+    technology: 'tecnologia OR ia OR software OR hardware OR aplicativos OR internet OR gadgets OR inovacao OR smartphones OR notebooks',
     economy: 'economia OR mercado OR negocios OR inflacao OR juros OR bolsa OR investimentos OR financas',
-    science: 'ciencia OR pesquisa OR espac\u0327o OR astronomia OR medicina',
+    science: 'ciencia OR pesquisa OR espaco OR astronomia OR medicina',
     health: 'saude OR medicina OR hospitais OR vacinas',
-    sports: 'esportes OR futebol OR basquete OR tenis OR formula 1 OR olimpiadas OR campeonatos OR atletas',
+    sports: 'esportes OR futebol OR basquete OR tenis OR formula1 OR olimpiadas OR campeonatos OR atletas',
 };
 // Troque para false quando for usar a API real.
 const USE_MOCK_DATA = false;
