@@ -1,8 +1,39 @@
 /* API */
 const BASE_URL = 'https://gnews.io/api/v4';
 const API_KEY = 'd0ed69c8eabc419e760efff246f557b7';
+// Troque para false quando for usar a API real.
+const USE_MOCK_DATA = false;
+
+const MOCK_DATA = {
+    articles: [
+        {
+            title: 'Noticia destaque para layout',
+            description: 'Resumo curto apenas para testar o design do card em destaque. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, rem quisquam illum, assumenda excepturi alias, repudiandae nesciunt soluta quos et debitis id animi a minima? Alias, expedita. Praesentium, dignissimos dolores? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, rem quisquam illum, assumenda excepturi alias, repudiandae nesciunt soluta quos et debitis id animi a minima? Alias, expedita. Praesentium, dignissimos dolores?',
+            publishedAt: '2026-02-20T10:00:00Z',
+            url: '#',
+            source: { name: 'NewsHub' }
+        },
+        {
+            title: 'Outra noticia para testar a lista',
+            description: 'Texto de exemplo para alinhar fontes, espacos e links.a excepturi alias, repudiandae nesciunt soluta quos et debitis id animi a minima? Alias, expedita. Praesentium, dignissimos dolores? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque, rem quisquam illum, assumenda excepturi alias, repudiandae nesciunt soluta quos et debitis id animi a minima? Alias, expedita. Praesentium, dignissimos dolores?',
+            publishedAt: '2026-02-20T09:00:00Z',
+            url: '#',
+            source: { name: 'NewsHub' }
+        },
+        {
+            title: 'Mais uma noticia simulada',
+            description: 'Esse conteudo e apenas temporario para estilizacao.',
+            publishedAt: '2026-02-19T18:30:00Z',
+            url: '#',
+            source: { name: 'NewsHub' }
+        }
+    ]
+};
 
 const fetchNewsByCategory = async (category) => {
+    if (USE_MOCK_DATA) {
+        return MOCK_DATA;
+    }
     const response = await fetch(
         `${BASE_URL}/top-headlines?token=${API_KEY}&lang=pt&topic=${category}`
 );
@@ -44,10 +75,10 @@ const renderFeatured = (article) => {
     }
 
     featuredSection.innerHTML = `
-        <h2>${article.title}</h2>
-        <p>${article.source?.name || 'Fonte desconhecida'} • ${formatDate(article.publishedAt)}</p>
-        <p>${article.description || ''}</p>
-        <a href="${article.url}" target="_blank" rel="noopener">Ler noticia completa</a>
+        <h2 class="title">${article.title}</h2>
+        <p class="news-source">${article.source?.name || 'Fonte desconhecida'} • ${formatDate(article.publishedAt)}</p>
+        <p class="description">${article.description || ''}</p>
+        <a class="link" href="${article.url}" target="_blank" rel="noopener">Ler noticia completa</a>
     `;
 };
 
@@ -61,10 +92,12 @@ const renderList = (articles) => {
         .map(
             (article) => `
             <article>
-                <h3>${article.title}</h3>
-                <p>${article.source?.name || 'Fonte desconhecida'} • ${formatDate(article.publishedAt)}</p>
-                <p>${article.description || ''}</p>
-                <a href="${article.url}" target="_blank" rel="noopener">Ler noticia</a>
+                <div class="news-container">
+                    <h3 class="title">${article.title}</h3>
+                    <p class="news-source">${article.source?.name || 'Fonte desconhecida'} • ${formatDate(article.publishedAt)}</p>
+                    <p class="description">${article.description || ''}</p>
+                    <a class="link" href="${article.url}" target="_blank" rel="noopener">Ler noticia</a>
+                </div>
             </article>
         `
         )
