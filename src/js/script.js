@@ -1,6 +1,13 @@
 /* API */
 const BASE_URL = 'https://gnews.io/api/v4';
 const API_KEY = 'd0ed69c8eabc419e760efff246f557b7';
+const CATEGORY_QUERIES = {
+    technology: 'tecnologia OR IA OR software OR hardware OR aplicativos OR internet OR gadgets OR inovação OR smartphones OR notebooks',
+    economy: 'economia OR mercado OR negocios OR inflacao OR juros OR bolsa OR investimentos OR finançass',
+    science: 'ciencia OR pesquisa OR espac\u0327o OR astronomia OR medicina',
+    health: 'saude OR medicina OR hospitais OR vacinas',
+    sports: 'esportes OR futebol OR basquete OR tenis OR formula 1 OR olimpíadas OR campeonatos OR atletas',
+};
 // Troque para false quando for usar a API real.
 const USE_MOCK_DATA = false;
 
@@ -34,8 +41,10 @@ const fetchNewsByCategory = async (category) => {
     if (USE_MOCK_DATA) {
         return MOCK_DATA;
     }
+    const query = CATEGORY_QUERIES[category] || category; // Usa palavras-chave da categoria (fallback para o nome)
+    const encodedQuery = encodeURIComponent(query); // Garante que a busca funcione na URL
     const response = await fetch(
-        `${BASE_URL}/top-headlines?token=${API_KEY}&lang=pt&topic=${category}`
+        `${BASE_URL}/search?token=${API_KEY}&lang=pt&q=${encodedQuery}`
 );
 
     if (!response.ok) {
