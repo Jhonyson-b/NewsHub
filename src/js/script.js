@@ -1,6 +1,5 @@
 /* API */
 const BASE_URL = 'https://gnews.io/api/v4';
-const API_KEY = 'd0ed69c8eabc419e760efff246f557b7';
 const PROXY_URL = 'https://portalnewshub.netlify.app';
 const CATEGORY_QUERIES = {
     technology: 'tecnologia OR IA OR software OR hardware OR aplicativos OR internet OR gadgets OR inovação OR smartphones OR notebooks',
