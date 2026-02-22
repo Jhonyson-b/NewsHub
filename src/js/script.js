@@ -1,6 +1,7 @@
 /* API */
 const BASE_URL = 'https://gnews.io/api/v4';
 const API_KEY = 'd0ed69c8eabc419e760efff246f557b7';
+const PROXY_URL = 'https://SEU-PROJETO.netlify.app/.netlify/functions/news';
 const CATEGORY_QUERIES = {
     technology: 'tecnologia OR IA OR software OR hardware OR aplicativos OR internet OR gadgets OR inovação OR smartphones OR notebooks',
     economy: 'economia OR mercado OR negocios OR inflacao OR juros OR bolsa OR investimentos OR finançass',
@@ -44,8 +45,8 @@ const fetchNewsByCategory = async (category) => {
     const query = CATEGORY_QUERIES[category] || category; // Usa palavras-chave da categoria (fallback para o nome)
     const encodedQuery = encodeURIComponent(query); // Garante que a busca funcione na URL
     const response = await fetch(
-        `${BASE_URL}/search?token=${API_KEY}&lang=pt&q=${encodedQuery}`
-);
+        `${PROXY_URL}?q=${encodedQuery}`
+    );
 
     if (!response.ok) {
         throw new Error('Erro ao buscar as noticias');
