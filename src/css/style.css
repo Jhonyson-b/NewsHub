@@ -183,3 +183,32 @@ body::before {
 .oculto {
     display: none;
 }
+
+/* footer */
+
+.footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 16px;
+    margin-top: 8px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.copyright,
+.creditos {
+    margin: 0;
+}
+
+.creditos a {
+    color: var(--ink);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.creditos a:hover {
+    color: var(--accent-dark);
+}
